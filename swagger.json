@@ -21,6 +21,17 @@
           }
         }
       }
+    },
+    "/da/catalog/search?searchTerm=svejse" : {
+      "get" : {
+        "summary" : "Search",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      }
     }
   }
 }
