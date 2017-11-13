@@ -6,9 +6,9 @@
       "type": "Project",
       "description": "",
       "id": "cb077b75-cf39-4314-9d15-37353a3e4f78",
-      "lastModified": "2017-11-13T13:57:12.658+01:00",
+      "lastModified": "2017-11-13T14:09:50.485+01:00",
       "name": "LEMU",
-      "remoteModification": "2017-11-13T12:57:12.573Z"
+      "remoteModification": "2017-11-13T13:09:50.401Z"
     },
     {
       "type": "Scenario",
@@ -33,14 +33,11 @@
           "delimiter": "&",
           "items": []
         },
-        "scheme": {
-          "name": "https",
-          "version": "V11"
-        },
-        "path": "example.com/"
+        "host": "{host}",
+        "path": ""
       },
       "id": "4f5c12d7-756c-4d0a-80e5-45370195b4b8",
-      "lastModified": "2017-11-13T13:57:12.260+01:00",
+      "lastModified": "2017-11-13T14:09:50.017+01:00",
       "name": "Frontpage",
       "headers": [],
       "metaInfo": {
