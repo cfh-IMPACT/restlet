@@ -1,0 +1,133 @@
+{
+  "front-version": "2.11.0",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "description": "",
+      "id": "cb077b75-cf39-4314-9d15-37353a3e4f78",
+      "lastModified": "2017-11-13T13:06:19.957+01:00",
+      "name": "LEMU",
+      "remoteModification": "2017-11-13T12:06:19.876Z"
+    },
+    {
+      "type": "Scenario",
+      "id": "e946cedd-11c5-4796-8ab0-4202e235e652",
+      "lastModified": "2017-11-10T11:13:37.748+01:00",
+      "name": "Scenario 1",
+      "requestOrder": [
+        "Frontpage",
+        "Search"
+      ],
+      "parentId": "cb077b75-cf39-4314-9d15-37353a3e4f78"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "host": "{host}",
+        "path": ""
+      },
+      "id": "4f5c12d7-756c-4d0a-80e5-45370195b4b8",
+      "lastModified": "2017-11-09T13:26:34.125+01:00",
+      "name": "Frontpage",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|117474449925550345516"
+      },
+      "parentId": "e946cedd-11c5-4796-8ab0-4202e235e652"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "encoded": true,
+              "name": "searchTerm",
+              "value": "r%C3%B8r"
+            }
+          ]
+        },
+        "host": "{host}",
+        "path": "/da/catalog/search"
+      },
+      "id": "904e911e-60e9-4ec6-882b-266b2d9f3bcb",
+      "lastModified": "2017-11-10T11:15:11.433+01:00",
+      "name": "Search",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|117474449925550345516"
+      },
+      "parentId": "e946cedd-11c5-4796-8ab0-4202e235e652"
+    },
+    {
+      "type": "Context",
+      "id": "20b19974-b182-4e48-af79-bc6846235ce7",
+      "lastModified": "2017-11-09T13:13:35.665+01:00",
+      "name": "production",
+      "variables": [
+        {
+          "enabled": true,
+          "name": "host",
+          "value": "http://www.lemu.dk/"
+        }
+      ]
+    }
+  ]
+}
