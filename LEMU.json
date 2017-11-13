@@ -118,14 +118,14 @@
     },
     {
       "type": "Context",
-      "id": "20b19974-b182-4e48-af79-bc6846235ce7",
-      "lastModified": "2017-11-09T13:13:35.665+01:00",
-      "name": "production",
+      "id": "1c307453-c1d5-447a-865c-9b105db50a34",
+      "lastModified": "2017-11-09T12:51:35.087+01:00",
+      "name": "gennemse",
       "variables": [
         {
           "enabled": true,
           "name": "host",
-          "value": "http://www.lemu.dk/"
+          "value": "http://lemu.gennemse.dk/"
         }
       ]
     }
