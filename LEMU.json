@@ -6,9 +6,178 @@
       "type": "Project",
       "description": "",
       "id": "cb077b75-cf39-4314-9d15-37353a3e4f78",
-      "lastModified": "2017-11-17T14:51:56.864+01:00",
+      "lastModified": "2017-11-20T13:44:23.318+01:00",
       "name": "LEMU",
-      "remoteModification": "2017-11-17T13:51:49.768Z"
+      "remoteModification": "2017-11-20T12:44:23.220Z"
+    },
+    {
+      "type": "Scenario",
+      "id": "13452d11-66d0-4b6a-8277-9779fd0138d0",
+      "lastModified": "2017-11-20T12:56:22.910+01:00",
+      "name": "API calls",
+      "requestOrder": [
+        "Autosugest",
+        "BasicStockInfos",
+        "GetDictionaryItems"
+      ],
+      "parentId": "cb077b75-cf39-4314-9d15-37353a3e4f78"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\"lMnos\":[\"4735990041\"]}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "host": "{host}",
+        "path": "/api/sitecore/stock/BasicStockInfos"
+      },
+      "id": "449867d4-8b74-42c9-97e7-b7bd3dceef0d",
+      "lastModified": "2017-11-20T12:57:42.922+01:00",
+      "name": "BasicStockInfos",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|117474449925550345516"
+      },
+      "parentId": "13452d11-66d0-4b6a-8277-9779fd0138d0"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\"searchWords\":\"le\",\"productAreaId\":-1}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "host": "{host}",
+        "path": "/api/sitecore/quicksearch/autosuggest"
+      },
+      "id": "ae7ae237-bc8d-4623-b654-d0afb2aeb775",
+      "lastModified": "2017-11-20T13:43:03.101+01:00",
+      "name": "Autosugest",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "2000"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|117474449925550345516"
+      },
+      "parentId": "13452d11-66d0-4b6a-8277-9779fd0138d0"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "host": "{host}",
+        "path": "/api/sitecore/translationservice/getdictionaryitems"
+      },
+      "id": "3c317b99-7946-4053-b9bc-38347e086c31",
+      "lastModified": "2017-11-20T12:57:42.923+01:00",
+      "name": "GetDictionaryItems",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|117474449925550345516"
+      },
+      "parentId": "13452d11-66d0-4b6a-8277-9779fd0138d0"
     },
     {
       "type": "Scenario",
@@ -21,38 +190,6 @@
         "Search"
       ],
       "parentId": "cb077b75-cf39-4314-9d15-37353a3e4f78"
-    },
-    {
-      "type": "Request",
-      "method": {
-        "link": "",
-        "name": "get"
-      },
-      "headersType": "Form",
-      "uri": {
-        "query": {
-          "delimiter": "&",
-          "items": []
-        },
-        "host": "{host}",
-        "path": ""
-      },
-      "id": "4f5c12d7-756c-4d0a-80e5-45370195b4b8",
-      "lastModified": "2017-11-17T14:40:43.470+01:00",
-      "name": "Frontpage",
-      "headers": [],
-      "assertions": [
-        {
-          "comparison": "Equals",
-          "subject": "ResponseStatus",
-          "path": "code",
-          "value": "200"
-        }
-      ],
-      "metaInfo": {
-        "ownerId": "google-oauth2|117474449925550345516"
-      },
-      "parentId": "e946cedd-11c5-4796-8ab0-4202e235e652"
     },
     {
       "type": "Request",
@@ -79,7 +216,7 @@
         "path": "/da/catalog"
       },
       "id": "08d8dff2-2068-4c5b-842e-0f8e540b03fd",
-      "lastModified": "2017-11-17T14:40:43.470+01:00",
+      "lastModified": "2017-11-20T12:58:22.929+01:00",
       "name": "Produkter",
       "headers": [],
       "assertions": [
@@ -87,6 +224,12 @@
           "comparison": "Equals",
           "subject": "ResponseStatus",
           "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
           "value": "200"
         }
       ],
@@ -126,7 +269,7 @@
         "path": "/da/catalog/search"
       },
       "id": "2b1bba57-ac4f-4a8f-9559-7a5e0fdfb398",
-      "lastModified": "2017-11-17T14:45:44.679+01:00",
+      "lastModified": "2017-11-20T13:44:23.104+01:00",
       "name": "Search",
       "headers": [],
       "assertions": [
@@ -135,6 +278,12 @@
           "subject": "ResponseStatus",
           "path": "code",
           "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "4000"
         }
       ],
       "metaInfo": {
@@ -143,32 +292,10 @@
       "parentId": "e946cedd-11c5-4796-8ab0-4202e235e652"
     },
     {
-      "type": "Scenario",
-      "id": "13452d11-66d0-4b6a-8277-9779fd0138d0",
-      "lastModified": "2017-11-17T14:47:04.643+01:00",
-      "name": "API calls",
-      "requestOrder": [
-        "Autosugest",
-        "BasicStockInfos"
-      ],
-      "parentId": "cb077b75-cf39-4314-9d15-37353a3e4f78"
-    },
-    {
       "type": "Request",
       "method": {
-        "requestBody": true,
-        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
-        "name": "POST"
-      },
-      "body": {
-        "formBody": {
-          "overrideContentType": true,
-          "encoding": "application/x-www-form-urlencoded",
-          "items": []
-        },
-        "bodyType": "Text",
-        "autoSetLength": true,
-        "textBody": "{\"searchWords\":\"le\",\"productAreaId\":-1}"
+        "link": "",
+        "name": "get"
       },
       "headersType": "Form",
       "uri": {
@@ -177,79 +304,30 @@
           "items": []
         },
         "host": "{host}",
-        "path": "/api/sitecore/quicksearch/autosuggest"
+        "path": ""
       },
-      "id": "ae7ae237-bc8d-4623-b654-d0afb2aeb775",
-      "lastModified": "2017-11-17T14:43:43.636+01:00",
-      "name": "Autosugest",
-      "headers": [
-        {
-          "enabled": true,
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
+      "id": "4f5c12d7-756c-4d0a-80e5-45370195b4b8",
+      "lastModified": "2017-11-20T12:58:22.929+01:00",
+      "name": "Frontpage",
+      "headers": [],
       "assertions": [
         {
           "comparison": "Equals",
           "subject": "ResponseStatus",
           "path": "code",
           "value": "200"
+        },
+        {
+          "comparison": "Less",
+          "subject": "Response",
+          "path": "latency",
+          "value": "300"
         }
       ],
       "metaInfo": {
         "ownerId": "google-oauth2|117474449925550345516"
       },
-      "parentId": "13452d11-66d0-4b6a-8277-9779fd0138d0"
-    },
-    {
-      "type": "Request",
-      "method": {
-        "requestBody": true,
-        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
-        "name": "POST"
-      },
-      "body": {
-        "formBody": {
-          "overrideContentType": true,
-          "encoding": "application/x-www-form-urlencoded",
-          "items": []
-        },
-        "bodyType": "Text",
-        "autoSetLength": true,
-        "textBody": "{\"lMnos\":[\"4735990041\"]}"
-      },
-      "headersType": "Form",
-      "uri": {
-        "query": {
-          "delimiter": "&",
-          "items": []
-        },
-        "host": "{host}",
-        "path": "/api/sitecore/stock/BasicStockInfos"
-      },
-      "id": "449867d4-8b74-42c9-97e7-b7bd3dceef0d",
-      "lastModified": "2017-11-17T14:51:56.864+01:00",
-      "name": "BasicStockInfos",
-      "headers": [
-        {
-          "enabled": true,
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
-      "assertions": [
-        {
-          "comparison": "Equals",
-          "subject": "ResponseStatus",
-          "path": "code",
-          "value": "200"
-        }
-      ],
-      "metaInfo": {
-        "ownerId": "google-oauth2|117474449925550345516"
-      },
-      "parentId": "13452d11-66d0-4b6a-8277-9779fd0138d0"
+      "parentId": "e946cedd-11c5-4796-8ab0-4202e235e652"
     },
     {
       "type": "Context",
